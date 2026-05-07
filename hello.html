@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Israt 💋</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --rose: #ff4d7d;
+    --blush: #ffb3cb;
+    --cream: #fff0f5;
+    --deep: #2d0a1a;
+    --petal: #ffe0ec;
+  }
+  body {
+    background: var(--cream);
+    font-family: 'Nunito', sans-serif;
+    color: var(--deep);
+    overflow-x: hidden;
+    cursor: none;
+  }
+  .cursor {
+    position: fixed; width: 22px; height: 22px;
+    background: var(--rose); border-radius: 50%;
+    pointer-events: none; transform: translate(-50%,-50%);
+    z-index: 9999; mix-blend-mode: multiply;
+  }
+  .cursor-trail {
+    position: fixed; width: 10px; height: 10px;
+    background: var(--blush); border-radius: 50%;
+    pointer-events: none; transform: translate(-50%,-50%);
+    transition: left 0.12s ease, top 0.12s ease; z-index: 9998;
+  }
+  .bg-hearts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .falling { position: absolute; top: -60px; animation: fall linear infinite; opacity: 0.55; }
+  @keyframes fall {
+    0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.7; }
+    50%  { transform: translateY(50vh) rotate(180deg) translateX(25px); }
+    100% { transform: translateY(115vh) rotate(360deg) translateX(-15px); opacity: 0; }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 2.5rem 1.5rem; z-index: 1;
+  }
+  .bubu-wrap {
+    display: flex; gap: 1rem; justify-content: center;
+    align-items: flex-end; margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .bubu-unit { display: flex; flex-direction: column; align-items: center; }
+  .bubu-gif {
+    width: 120px; height: 120px; border-radius: 50%;
+    border: 4px solid var(--blush);
+    box-shadow: 0 4px 20px rgba(255,77,125,0.3);
+    overflow: hidden; background: var(--petal);
+    display: flex; align-items: center; justify-content: center; font-size: 4rem;
+  }
+  .bubu-gif img { width: 100%; height: 100%; object-fit: cover; }
+  .bubu-label { font-family: 'Dancing Script', cursive; font-size: 1rem; color: var(--rose); margin-top: 0.4rem; }
+  .between-heart { font-size: 2.2rem; margin-bottom: 2.4rem; animation: heartbeat 1.4s ease-in-out infinite; }
+  .main-kiss {
+    font-size: clamp(4rem, 12vw, 7rem);
+    animation: heartbeat 1.4s ease-in-out infinite;
+    filter: drop-shadow(0 0 24px rgba(255,77,125,0.5));
+    margin-bottom: 0.5rem;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    14%     { transform: scale(1.18); }
+    28%     { transform: scale(1); }
+    42%     { transform: scale(1.12); }
+    70%     { transform: scale(1); }
+  }
+  .title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    color: var(--rose); margin-bottom: 0.5rem;
+    animation: fadeUp 0.9s 0.1s ease both; opacity: 0;
+    text-shadow: 2px 4px 16px rgba(255,77,125,0.2);
+  }
+  .msg-bubble {
+    background: white; border: 2.5px solid var(--blush);
+    border-radius: 28px 28px 28px 6px;
+    padding: 1.2rem 1.8rem; max-width: 420px;
+    margin: 1.2rem auto 1.8rem;
+    box-shadow: 0 6px 28px rgba(255,77,125,0.13);
+    animation: fadeUp 0.9s 0.25s ease both; opacity: 0; position: relative;
+  }
+  .msg-bubble::after {
+    content: '🐷'; position: absolute;
+    bottom: -20px; left: 16px; font-size: 1.6rem;
+  }
+  .msg-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.3rem, 4vw, 1.65rem);
+    color: #c0335a; line-height: 1.75;
+  }
+  .msg-emojis { font-size: 1.5rem; margin-top: 0.4rem; letter-spacing: 0.12rem; }
+
+  .kiss-btn {
+    position: relative;
+    background: linear-gradient(135deg, #ff4d7d 0%, #ff87aa 100%);
+    color: white; border: none; padding: 1.1rem 2.6rem;
+    font-family: 'Nunito', sans-serif; font-size: 1.2rem; font-weight: 800;
+    border-radius: 100px; cursor: none;
+    animation: fadeUp 0.9s 0.4s ease both, pulse-btn 2.2s 1.5s ease-in-out infinite;
+    opacity: 0;
+    box-shadow: 0 6px 28px rgba(255,77,125,0.45), 0 2px 8px rgba(255,77,125,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border-bottom: 4px solid #d63060;
+  }
+  .kiss-btn:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 14px 40px rgba(255,77,125,0.55); }
+  .kiss-btn:active { transform: scale(0.94); border-bottom-width: 2px; }
+  @keyframes pulse-btn {
+    0%,100% { box-shadow: 0 6px 28px rgba(255,77,125,0.45); }
+    50%     { box-shadow: 0 6px 40px rgba(255,77,125,0.75), 0 0 0 10px rgba(255,77,125,0.1); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .lipstick { position: fixed; pointer-events: none; z-index: 200; animation: kissAppear 1.6s ease forwards; }
+  @keyframes kissAppear {
+    0%   { opacity: 0; transform: scale(0) rotate(-25deg); }
+    20%  { opacity: 1; transform: scale(1.4) rotate(8deg); }
+    55%  { opacity: 1; transform: scale(1) rotate(0); }
+    100% { opacity: 0; transform: scale(0.7) rotate(12deg) translateY(-45px); }
+  }
+  .heart-pop { position: fixed; pointer-events: none; z-index: 150; animation: heartPop 1.2s ease forwards; }
+  @keyframes heartPop {
+    0%   { opacity: 1; transform: scale(0.5) translateY(0); }
+    60%  { opacity: 1; transform: scale(1.3) translateY(-55px) rotate(15deg); }
+    100% { opacity: 0; transform: scale(0.8) translateY(-100px) rotate(-10deg); }
+  }
+
+  /* ISRAT MESSAGE SECTION */
+  .israt-section {
+    position: relative; z-index: 1;
+    padding: 3.5rem 1.5rem 2rem;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+  }
+  .israt-name {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--rose);
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 4px 18px rgba(255,77,125,0.2);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%,100% { text-shadow: 2px 4px 18px rgba(255,77,125,0.2); }
+    50%     { text-shadow: 0 0 30px rgba(255,77,125,0.6), 2px 4px 18px rgba(255,77,125,0.3); }
+  }
+  .israt-sub {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem; color: #c0335a;
+    margin-bottom: 2.5rem; font-style: italic;
+  }
+
+  /* Big love letter card for Israt */
+  .israt-letter {
+    background: white;
+    border: 2.5px solid #ffc5d8;
+    border-radius: 24px;
+    padding: 3rem 3rem 2.5rem;
+    max-width: 580px; width: 100%;
+    box-shadow: 0 6px 40px rgba(255,77,125,0.12), 8px 8px 0 var(--blush);
+    position: relative;
+    transform: rotate(-0.8deg);
+    transition: transform 0.3s;
+  }
+  .israt-letter:hover { transform: rotate(0) scale(1.01); }
+  .israt-letter::before {
+    content: '💌'; position: absolute;
+    top: -22px; left: 50%; transform: translateX(-50%); font-size: 2.5rem;
+  }
+  .israt-letter-body {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.15rem, 3.5vw, 1.45rem);
+    color: #4a1020;
+    line-height: 2;
+    text-align: left;
+  }
+  .israt-letter-body p { margin-bottom: 1rem; }
+  .israt-letter-body .highlight {
+    color: var(--rose); font-size: 1.1em; font-weight: 700;
+  }
+  .israt-sign {
+    font-family: 'Pacifico', cursive;
+    color: #c9954c; font-size: 1.3rem;
+    margin-top: 1.5rem; text-align: right;
+  }
+
+  /* Little love tags */
+  .love-tags {
+    display: flex; flex-wrap: wrap; gap: 0.7rem;
+    justify-content: center; margin-top: 2.5rem; max-width: 580px;
+  }
+  .love-tag {
+    background: white; border: 2px solid var(--blush);
+    border-radius: 100px; padding: 0.5rem 1.2rem;
+    font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: 0.95rem; color: #c0335a;
+    box-shadow: 0 2px 12px rgba(255,77,125,0.1);
+    transition: transform 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .love-tag:hover { transform: scale(1.08) rotate(-2deg); background: var(--petal); }
+
+  /* GIF SECTION */
+  .gif-section { position: relative; z-index: 1; padding: 3rem 1.5rem 2.5rem; text-align: center; }
+  .section-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--rose); margin-bottom: 2rem;
+  }
+  .gif-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 1.2rem; max-width: 800px; margin: 0 auto;
+  }
+  .gif-card {
+    background: white; border: 2.5px solid var(--petal);
+    border-radius: 22px; padding: 1rem 0.8rem 0.9rem;
+    box-shadow: 0 4px 18px rgba(255,77,125,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .gif-card:hover { transform: translateY(-7px) rotate(-1.5deg); box-shadow: 0 14px 35px rgba(255,77,125,0.2); }
+  .gif-inner {
+    width: 100%; aspect-ratio: 1/1; border-radius: 14px;
+    overflow: hidden; background: var(--petal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4.5rem; margin-bottom: 0.6rem;
+  }
+  .gif-inner img { width: 100%; height: 100%; object-fit: cover; }
+  .gif-caption { font-family: 'Dancing Script', cursive; font-size: 1.1rem; color: #c0335a; }
+
+  /* COUNTER */
+  .counter-section {
+    position: relative; z-index: 1;
+    background: linear-gradient(135deg, #ff4d7d, #ff8fad);
+    color: white; text-align: center; padding: 4rem 2rem;
+  }
+  .counter-section h2 { font-family: 'Pacifico', cursive; font-size: 1.2rem; opacity: 0.9; margin-bottom: 0.8rem; }
+  .kiss-count {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(3.5rem, 11vw, 7rem); line-height: 1;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  }
+  .counter-label { font-size: 1rem; opacity: 0.8; margin-top: 0.6rem; font-weight: 700; }
+
+  footer { position: relative; z-index: 1; text-align: center; padding: 2.5rem 2rem; color: #a06070; font-size: 1rem; font-weight: 700; }
+  footer span { color: var(--rose); }
+  .divider { position: relative; z-index: 1; text-align: center; padding: 0.8rem 0; font-size: 1.3rem; letter-spacing: 0.4rem; color: var(--blush); }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+<div class="bg-hearts" id="bgHearts"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bubu-wrap">
+    <div class="bubu-unit">
+      <div class="bubu-gif">
+        <img src="https://media.tenor.com/aNna0iSJqZ8AAAAi/bubu-dudu.gif" onerror="this.parentElement.innerHTML='🐷'" alt="bubu"/>
+      </div>
+      <div class="bubu-label">Bubu 🐷</div>
+    </div>
+    <span class="between-heart">💕</span>
+    <div class="bubu-unit">
+      <div class="bubu-gif">
+        <img src="https://media.tenor.com/FUDEXYjlNjQAAAAi/bubu-dudu-love.gif" onerror="this.parentElement.innerHTML='🐻'" alt="dudu"/>
+      </div>
+      <div class="bubu-label">Dudu 🐻</div>
+    </div>
+  </div>
+
+  <div class="main-kiss">💋</div>
+  <h1 class="title">for my Israt 🥺</h1>
+
+  <div class="msg-bubble">
+    <div class="msg-text">
+      love u babe, miss u so much 🥺🥺<br>
+      ummmmmmmaaa 💋💋💋
+    </div>
+    <div class="msg-emojis">💖 💗 💓 💕 💞</div>
+  </div>
+
+  <button class="kiss-btn" id="kissBtn">
+    here is your kiss, babe 💋
+  </button>
+</section>
+
+<div class="divider">🌸 💕 🌸 💕 🌸</div>
+
+<!-- ISRAT PERSONAL MESSAGE -->
+<section class="israt-section">
+  <div class="israt-name">My Israt 💖</div>
+  <div class="israt-sub">the one who owns my whole heart 🌸</div>
+
+  <div class="israt-letter">
+    <div class="israt-letter-body">
+      <p>Hey my love, my <span class="highlight">Israt</span> 🥺💕</p>
+      <p>I don't always find the right words, but I want you to know — <span class="highlight">you are the best thing that ever happened to me.</span> Every single day with you feels like a dream I never want to wake up from. 🌙</p>
+      <p>When I miss you, I miss you in a way that aches — like a piece of me is somewhere else, waiting to come back to you. <span class="highlight">That's how much you mean to me.</span> 💗</p>
+      <p>You have this magical way of making everything feel okay. Your laugh, your voice, the way you are — <span class="highlight">Israt, you are my peace.</span> 🌸</p>
+      <p>No matter how far or how long — I am yours, always. <span class="highlight">Ummmmmmmaaa 💋💋💋</span></p>
+      <p>I love you more than any words on this little website could ever say. 🥺💞</p>
+    </div>
+    <div class="israt-sign">— forever urs 💕</div>
+  </div>
+
+  <div class="love-tags">
+    <span class="love-tag">💖 my everything</span>
+    <span class="love-tag">🌸 my peace</span>
+    <span class="love-tag">💋 my babe</span>
+    <span class="love-tag">🥺 miss u always</span>
+    <span class="love-tag">🌙 my dream</span>
+    <span class="love-tag">💕 my Israt</span>
+    <span class="love-tag">🐷 bubu loves dudu</span>
+    <span class="love-tag">✨ my fav person</span>
+  </div>
+</section>
+
+<div class="divider">🌸 💕 🌸 💕 🌸</div>
+
+<!-- GIF Section -->
+<section class="gif-section">
+  <h2 class="section-title">us, but make it cute 🥺💕</h2>
+  <div class="gif-grid">
+    <div class="gif-card">
+      <div class="gif-inner">
+        <img src="https://media.tenor.com/aNna0iSJqZ8AAAAi/bubu-dudu.gif" onerror="this.parentElement.innerHTML='🐷🤗🐻'" alt="bubu dudu hug"/>
+      </div>
+      <div class="gif-caption">always hugging u 🤗</div>
+    </div>
+    <div class="gif-card">
+      <div class="gif-inner">
+        <img src="https://media.tenor.com/FUDEXYjlNjQAAAAi/bubu-dudu-love.gif" onerror="this.parentElement.innerHTML='💑💕'" alt="bubu dudu love"/>
+      </div>
+      <div class="gif-caption">my fav person 💕</div>
+    </div>
+    <div class="gif-card">
+      <div class="gif-inner">
+        <img src="https://media.tenor.com/H7EnIcwLJ8YAAAAi/bubu-dudu.gif" onerror="this.parentElement.innerHTML='🐷🐻🌸'" alt="bubu dudu together"/>
+      </div>
+      <div class="gif-caption">together forever 🌸</div>
+    </div>
+    <div class="gif-card">
+      <div class="gif-inner">
+        <img src="https://media.tenor.com/hGJH3MUoMCMAAAAi/bubu-dudu-piggy.gif" onerror="this.parentElement.innerHTML='💋💋💋'" alt="bubu dudu kiss"/>
+      </div>
+      <div class="gif-caption">mwah mwah mwah 😘</div>
+    </div>
+  </div>
+</section>
+
+<!-- Kiss counter -->
+<section class="counter-section">
+  <h2>kisses sent to Israt 💋</h2>
+  <div class="kiss-count" id="kissCounter">0 <span>💋</span></div>
+  <p class="counter-label">click the button to send more!! 🥺</p>
+</section>
+
+<footer>
+  made with <span>💗</span> just for u, my Israt — ummmmmmmaaa!! 😘
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const trail  = document.getElementById('cursorTrail');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+    setTimeout(() => { trail.style.left = e.clientX + 'px'; trail.style.top = e.clientY + 'px'; }, 90);
+  });
+
+  const bgEl = document.getElementById('bgHearts');
+  const falling = ['🌸','💕','💗','🌺','💖','💓','🌷','💞','🥰','🐷','🐻'];
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'falling';
+    p.textContent = falling[Math.floor(Math.random() * falling.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (5 + Math.random() * 9) + 's';
+    p.style.animationDelay = (-Math.random() * 12) + 's';
+    p.style.fontSize = (0.7 + Math.random() * 0.85) + 'rem';
+    bgEl.appendChild(p);
+  }
+
+  let kissCount = 0;
+  const btn = document.getElementById('kissBtn');
+  const counter = document.getElementById('kissCounter');
+  const kissMarks = ['💋','😘','💝','💖','💗','💓','🥰','💞','🌹'];
+  const heartPops = ['💋','💕','💗','💖','🥺','😘','💓'];
+
+  btn.addEventListener('click', () => {
+    kissCount++;
+    counter.innerHTML = kissCount + ' <span>💋</span>';
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        const el = document.createElement('div');
+        el.className = 'lipstick';
+        el.textContent = kissMarks[Math.floor(Math.random() * kissMarks.length)];
+        el.style.left = (8 + Math.random() * 84) + 'vw';
+        el.style.top  = (8 + Math.random() * 84) + 'vh';
+        el.style.fontSize = (1.6 + Math.random() * 1.8) + 'rem';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1800);
+      }, i * 110);
+    }
+    const rect = btn.getBoundingClientRect();
+    for (let i = 0; i < 6; i++) {
+      setTimeout(() => {
+        const h = document.createElement('div');
+        h.className = 'heart-pop';
+        h.textContent = heartPops[Math.floor(Math.random() * heartPops.length)];
+        h.style.fontSize = (1.2 + Math.random() * 1.2) + 'rem';
+        h.style.left = (rect.left + Math.random() * rect.width) + 'px';
+        h.style.top  = (rect.top - 5) + 'px';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 1300);
+      }, i * 70);
+    }
+  });
+</script>
+</body>
+</html>
